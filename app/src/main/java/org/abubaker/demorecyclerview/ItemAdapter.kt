@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
@@ -37,6 +38,7 @@ class ItemAdapter(val context: Context, val items: ArrayList<String>) :
      * layout file.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val item = items.get(position)
 
         holder.tvItem.text = item
@@ -50,12 +52,7 @@ class ItemAdapter(val context: Context, val items: ArrayList<String>) :
                 )
             )
         } else {
-            holder.tvItem.setBackgroundColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.colorWhite
-                )
-            )
+            holder.tvItem.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite))
         }
     }
 
@@ -71,7 +68,7 @@ class ItemAdapter(val context: Context, val items: ArrayList<String>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Holds the TextView that will add each item to
-        val tvItem = view.tvItem
+        // val tvItem = view.tvItem
+        val tvItem: TextView = view.findViewById(R.id.tvItem)
     }
-
 }

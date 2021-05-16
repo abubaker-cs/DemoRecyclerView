@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.abubaker.demorecyclerview.databinding.ActivityMainBinding
+import org.abubaker.demorecyclerview.databinding.ContentMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)
 
         // setSupportActionBar(toolbar)
@@ -60,11 +62,11 @@ class MainActivity : AppCompatActivity() {
         currentVisibleView = LIST_VIEW // Current view is updated
 
         // Set the LayoutManager that this RecyclerView will use.
-        binding.rvItemsList.layoutManager = LinearLayoutManager(this)
+        binding.mainContainer.rvItemsList.layoutManager = LinearLayoutManager(this)
         // Adapter class is initialized and list is passed in the param.
         val itemAdapter = ItemAdapter(this, getItemsList())
         // adapter instance is set to the recyclerview to inflate the items.
-        binding.rvItemsList.adapter = itemAdapter
+        binding.mainContainer.rvItemsList.adapter = itemAdapter
     }
 
     /**
@@ -75,11 +77,11 @@ class MainActivity : AppCompatActivity() {
         currentVisibleView = GRID_VIEW // Current view is updated
 
         // Set the LayoutManager that this RecyclerView will use.
-        binding.rvItemsList.layoutManager = GridLayoutManager(this, 2)
+        binding.mainContainer.rvItemsList.layoutManager = GridLayoutManager(this, 2)
         // Adapter class is initialized and list is passed in the param.
         val itemAdapter = ItemAdapter(this, getItemsList())
         // adapter instance is set to the recyclerview to inflate the items.
-        binding.rvItemsList.adapter = itemAdapter
+        binding.mainContainer.rvItemsList.adapter = itemAdapter
     }
 
     /**

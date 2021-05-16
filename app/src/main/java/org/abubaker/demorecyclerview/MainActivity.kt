@@ -14,10 +14,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     // Value for List View
-    val LIST_VIEW = "LIST_VIEW"
+    private val LIST_VIEW = "LIST_VIEW"
 
     // Value for Grid View
-    val GRID_VIEW = "GRID_VIEW"
+    private val GRID_VIEW = "GRID_VIEW"
 
     // Variable is used check which is current view visible as default it is list view.
     var currentVisibleView: String = LIST_VIEW
@@ -62,8 +62,10 @@ class MainActivity : AppCompatActivity() {
 
         // Set the LayoutManager that this RecyclerView will use.
         binding.mainContainer.rvItemsList.layoutManager = LinearLayoutManager(this)
+
         // Adapter class is initialized and list is passed in the param.
         val itemAdapter = ItemAdapter(this, getItemsList())
+
         // adapter instance is set to the recyclerview to inflate the items.
         binding.mainContainer.rvItemsList.adapter = itemAdapter
     }
@@ -77,8 +79,10 @@ class MainActivity : AppCompatActivity() {
 
         // Set the LayoutManager that this RecyclerView will use.
         binding.mainContainer.rvItemsList.layoutManager = GridLayoutManager(this, 2)
+
         // Adapter class is initialized and list is passed in the param.
         val itemAdapter = ItemAdapter(this, getItemsList())
+
         // adapter instance is set to the recyclerview to inflate the items.
         binding.mainContainer.rvItemsList.adapter = itemAdapter
     }
@@ -89,18 +93,26 @@ class MainActivity : AppCompatActivity() {
     private fun getItemsList(): ArrayList<String> {
         val list = ArrayList<String>()
 
-        list.add("Item One")
-        list.add("Item Two")
-        list.add("Item Three")
-        list.add("Item Four")
-        list.add("Item Five")
-        list.add("Item Six")
-        list.add("Item Seven")
-        list.add("Item Eight")
-        list.add("Item Nine")
-        list.add("Item Ten")
-        list.add("Item Eleven")
-        list.add("Item Twelve")
+        list.add("01 January")
+        list.add("02 February")
+        list.add("03 March")
+        list.add("04 April")
+        list.add("05 May")
+        list.add("06 June")
+        list.add("07 July")
+        list.add("08 August")
+        list.add("09 September")
+        list.add("10 October")
+        list.add("11 November")
+        list.add("12 December")
+        list.add("------------")
+        list.add("Saturday")
+        list.add("Sunday")
+        list.add("Monday")
+        list.add("Tuesday")
+        list.add("Wednesday")
+        list.add("Thursday")
+        list.add("Friday")
 
         return list
     }

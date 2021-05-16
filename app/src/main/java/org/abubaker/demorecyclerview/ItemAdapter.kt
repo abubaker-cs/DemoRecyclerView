@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter(val context: Context, val items: ArrayList<String>) :
+class ItemAdapter(private val context: Context, private val items: ArrayList<String>) :
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     /**
@@ -39,7 +39,7 @@ class ItemAdapter(val context: Context, val items: ArrayList<String>) :
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val item = items.get(position)
+        val item = items[position]
 
         holder.tvItem.text = item
 
@@ -68,7 +68,6 @@ class ItemAdapter(val context: Context, val items: ArrayList<String>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Holds the TextView that will add each item to
-        // val tvItem = view.tvItem
         val tvItem: TextView = view.findViewById(R.id.tvItem)
     }
 }

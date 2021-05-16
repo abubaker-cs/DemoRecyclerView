@@ -105,14 +105,13 @@ class MainActivity : AppCompatActivity() {
         list.add("10 October")
         list.add("11 November")
         list.add("12 December")
-        list.add("------------")
-        list.add("Saturday")
-        list.add("Sunday")
-        list.add("Monday")
-        list.add("Tuesday")
-        list.add("Wednesday")
-        list.add("Thursday")
-        list.add("Friday")
+        list.add("13 Saturday")
+        list.add("14 Sunday")
+        list.add("15 Monday")
+        list.add("16 Tuesday")
+        list.add("17 Wednesday")
+        list.add("18 Thursday")
+        list.add("19 Friday")
 
         return list
     }

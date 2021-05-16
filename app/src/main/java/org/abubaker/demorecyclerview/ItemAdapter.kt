@@ -1,8 +1,10 @@
 package org.abubaker.demorecyclerview
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemAdapter(val context: Context, val items: ArrayList<String>) :
@@ -14,8 +16,14 @@ class ItemAdapter(val context: Context, val items: ArrayList<String>) :
      * create a new
      * {@link ViewHolder} and initializes some private fields to be used by RecyclerView.
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAdapter.ViewHolder {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.items_row,
+                parent,
+                false
+            )
+        )
     }
 
     /**
@@ -28,22 +36,42 @@ class ItemAdapter(val context: Context, val items: ArrayList<String>) :
      * of the given type. You can either create a new View manually or inflate it from an XML
      * layout file.
      */
-    override fun onBindViewHolder(holder: ItemAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = items.get(position)
+
+        holder.tvItem.text = item
+
+        // Updating the background color according to the odd/even positions in list.
+        if (position % 2 == 0) {
+            holder.tvItem.setBackgroundColor(
+                ContextCompat.getColor(
+                    context,
+                    R.color.colorLightGray
+                )
+            )
+        } else {
+            holder.tvItem.setBackgroundColor(
+                ContextCompat.getColor(
+                    context,
+                    R.color.colorWhite
+                )
+            )
+        }
     }
 
     /**
      * Gets the number of items in the list
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return items.size
     }
 
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        // Holds the TextView that will add each item to
+        val tvItem = view.tvItem
     }
 
 }
